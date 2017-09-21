@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <testsuites time="9.761">
+        <testsuite name="Open amazon and search iphone 7 in the search box and validate results" tests="4" failures="0" errors="0" time="9.761" timestamp="2017-09-21T15:40:33.892Z" package="test_amazon">
+            <testcase name="amazon homepage title is the one expected" classname="test_amazon" time="7.494"/>
+            <testcase name="search form is found" classname="test_amazon" time="0.001"/>
+            <testcase name="amazon title is ok" classname="test_amazon" time="2.265"/>
+            <testcase name="amazon search for iphone 7 retrieves 10 or more results" classname="test_amazon" time="0.001"/>
+            <system-out><![CDATA[]]></system-out>
+        </testsuite>
+    </testsuites>

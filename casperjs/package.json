@@ -1,0 +1,14 @@
+{
+  "name": "amazon_casper",
+  "version": "1.0.0",
+  "description": "testing amazon with casper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bpc",
+  "license": "MIT",
+  "dependencies": {
+    "phantomjs": "^2.1.7"
+  }
+}
