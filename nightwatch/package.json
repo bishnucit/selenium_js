@@ -1,0 +1,17 @@
+{
+  "name": "nightwatchjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "nightwatch.conf.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "BPC",
+  "license": "MIT",
+  "devDependencies": {
+    "nightwatch": "^0.9.16"
+  }
+}
