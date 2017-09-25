@@ -43,11 +43,11 @@ casper.test.begin('Testing IATDG About Page', 3, function(test) {
         this.echo("Person 10 pic is visible");
 
 
-      this.echo(casper.fetchText('body > div.main > section.off-white.why-we-exist.wow.fadeInLeft > div > div > h4') + " is visibile in the page");
+      this.echo(casper.fetchText('body > div.main > section.off-white.why-we-exist.wow.fadeInLeft > div > div > h4') + " is visible in the page");
 
-      this.echo(casper.fetchText('body > div.main > section.mission-vision-area > div > div > div.mission-vision-area-box-main > div') + " is visibile in the page");
+      this.echo(casper.fetchText('body > div.main > section.mission-vision-area > div > div > div.mission-vision-area-box-main > div') + " is visible in the page");
       
-      this.echo(casper.fetchText('body > div.main > section.off-white.our-story-evolution.wow.fadeInRight > div > div > h4') + " is visibile in the page");
+      this.echo(casper.fetchText('body > div.main > section.off-white.our-story-evolution.wow.fadeInRight > div > div > h4') + " is visible in the page");
 
       test.assertVisible('body > div.main > section.experience-area.wow.fadeInUp > div > div > a');
 

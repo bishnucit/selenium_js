@@ -12,19 +12,19 @@ casper.test.begin('Testing IATDG What We Offer Page', 3, function(test) {
       test.assertTitle('What we offer – IATDG');
       casper.capture('whatweoffer.png');
 
-      this.echo(casper.fetchText('body > div.main > section.off-white.gravida-diam.wow.fadeInUp > div > div > h4:nth-child(2)') + " is visibile in the page");
+      this.echo(casper.fetchText('body > div.main > section.off-white.gravida-diam.wow.fadeInUp > div > div > h4:nth-child(2)') + " is visible in the page");
 
-      this.echo(casper.fetchText('body > div.main > section.off-white.gravida-diam.wow.fadeInUp > div > div > h4:nth-child(4)') + " is visibile in the page");
+      this.echo(casper.fetchText('body > div.main > section.off-white.gravida-diam.wow.fadeInUp > div > div > h4:nth-child(4)') + " is visible in the page");
 
-      this.echo(casper.fetchText('body > div.main > section.off-white.gravida-diam.wow.fadeInUp > div > div > h4:nth-child(6)') + " is visibile in the page");
+      this.echo(casper.fetchText('body > div.main > section.off-white.gravida-diam.wow.fadeInUp > div > div > h4:nth-child(6)') + " is visible in the page");
 
-      this.echo(casper.fetchText('body > div.main > section.off-white.gravida-diam.wow.fadeInUp > div > div > h4:nth-child(8)') + " is visibile in the page");
+      this.echo(casper.fetchText('body > div.main > section.off-white.gravida-diam.wow.fadeInUp > div > div > h4:nth-child(8)') + " is visible in the page");
       
-      this.echo(casper.fetchText('body > div.main > section.off-white.gravida-diam.wow.fadeInUp > div > div > h4:nth-child(10)') + " is visibile in the page");
+      this.echo(casper.fetchText('body > div.main > section.off-white.gravida-diam.wow.fadeInUp > div > div > h4:nth-child(10)') + " is visible in the page");
       
-      this.echo(casper.fetchText('body > div.main > section.off-white.gravida-diam.wow.fadeInUp > div > div > h4:nth-child(12)') + " is visibile in the page");
+      this.echo(casper.fetchText('body > div.main > section.off-white.gravida-diam.wow.fadeInUp > div > div > h4:nth-child(12)') + " is visible in the page");
       
-      this.echo(casper.fetchText('body > div.main > section.off-white.gravida-diam.wow.fadeInUp > div > div > h4:nth-child(14)') + " is visibile in the page");
+      this.echo(casper.fetchText('body > div.main > section.off-white.gravida-diam.wow.fadeInUp > div > div > h4:nth-child(14)') + " is visible in the page");
 
       test.assertVisible('body > div.main > section.what-we-offer-page.wow.fadeInUp > div > div > div > h2');
 

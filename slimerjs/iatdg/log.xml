@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites time="29.298">
+    <testsuite name="Testing IATDG About Page" tests="3" failures="0" errors="0" time="10.564" timestamp="2017-09-25T06:46:29.312Z" package="tests\About">
+        <testcase name="Selector is visible" classname="tests\About" time="10.045"/>
+        <testcase name="Page title is: &quot;About us – IATDG&quot;" classname="tests\About" time="0.002"/>
+        <testcase name="Selector is visible" classname="tests\About" time="0.517"/>
+        <system-out><![CDATA[]]></system-out>
+    </testsuite>
+    <testsuite name="Testing IATDG Home Page" tests="5" failures="0" errors="0" time="12.254" timestamp="2017-09-25T06:46:29.313Z" package="tests\Home">
+        <testcase name="Selector is visible" classname="tests\Home" time="11.708"/>
+        <testcase name="Find &quot;Home&quot; within the selector &quot;#menu-item-16 &gt; a&quot;" classname="tests\Home" time="0.002"/>
+        <testcase name="Page title is: &quot;IATDG&quot;" classname="tests\Home" time="0.015"/>
+        <testcase name="Selector is visible" classname="tests\Home" time="0.528"/>
+        <testcase name="Page title is: &quot;IATDG&quot;" classname="tests\Home" time="0.001"/>
+        <system-out><![CDATA[]]></system-out>
+    </testsuite>
+    <testsuite name="Testing IATDG What We Offer Page" tests="3" failures="0" errors="0" time="6.48" timestamp="2017-09-25T06:46:29.314Z" package="tests\WhatweOffer">
+        <testcase name="Selector is visible" classname="tests\WhatweOffer" time="6.037"/>
+        <testcase name="Page title is: &quot;What we offer – IATDG&quot;" classname="tests\WhatweOffer" time="0.001"/>
+        <testcase name="Selector is visible" classname="tests\WhatweOffer" time="0.442"/>
+        <system-out><![CDATA[]]></system-out>
+    </testsuite>
+</testsuites>

@@ -5,4 +5,4 @@ Install slimerjs
 npm install -g slimerjs
 
 
-casperjs --verbose --engine=slimerjs test tests
+casperjs --verbose --engine=slimerjs --xunit=log.xml test tests
