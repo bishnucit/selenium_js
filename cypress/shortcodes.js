@@ -124,9 +124,48 @@ cy.get('.main-container') // Yields an array of matching DOM elements
   .click()                // Yields same DOM element from previous command
   
 
+//Cypress commands do not return their subjects, they yield them.
+
+cy
+  // Find the el with id 'some-link'
+  .get('#some-link')
+
+  .then(($myElement) => {
+    // ...massage the subject with some arbitrary code
+
+    // grab its href property
+    const href = $myElement.prop('href')
+
+    // strip out the 'hash' character and everything after it
+    return href.replace(/(#.*)/, '')
+  })
+  .then((href) => {
+    // href is now the new subject
+    // which we can work with now
+  })
+
+cy.get('button').then(($btn) => {
+
+  // store the button's text
+  const txt = $btn.text()
+
+  // submit a form
+  cy.get('form').submit()
+
+  // compare the two buttons' text
+  // and make sure they are different
+  cy.get('button').should(($btn2) => {
+    expect($btn2.text()).not.to.eq(txt)
+  })
+})
+
+// these commands run after all of the
+// other previous commands have finished
+cy.get(...).find(...).should(...)
 
 
-
+                             
+                             
 
 
  
