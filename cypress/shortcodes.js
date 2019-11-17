@@ -162,10 +162,84 @@ cy.get('button').then(($btn) => {
 // these commands run after all of the
 // other previous commands have finished
 cy.get(...).find(...).should(...)
-
-
                              
+//simple cypress as it can get
+describe('Post Resource', function() {
+  it('Creating a New Post', function() {
+    cy.visit('/posts/new')     // 1.
+
+    cy.get('input.post-title') // 2.
+      .type('My First Post')   // 3.
+
+    cy.get('input.post-body')  // 4.
+      .type('Hello, world!')   // 5.
+
+    cy.contains('Submit')      // 6.
+      .click()                 // 7.
+
+    cy.url()                   // 8.
+      .should('include', '/posts/my-first-post')
+
+    cy.get('h1')               // 9.
+      .should('contain', 'My First Post')
+  })
+})
+
+//chaining using get-then - then
+cy
+  // Find the el with id 'some-link'
+  .get('#some-link')
+
+  .then(($myElement) => {
+    // ...massage the subject with some arbitrary code
+
+    // grab its href property
+    const href = $myElement.prop('href')
+
+    // strip out the 'hash' character and everything after it
+    return href.replace(/(#.*)/, '')
+  })
+  .then((href) => {
+    // href is now the new subject
+    // which we can work with now
+  })
+
+
+//Each Cypress command (and chain of commands) returns immediately, having only been appended
+//to a queue of commands to be executed at a later time.
+
+//You purposefully cannot do anything useful with the return value from a command.
+//Commands are enqueued and managed entirely behind the scenes.
+
+it('changes the URL when "awesome" is clicked', function() {
+  cy.visit('/my/resource/path') // Nothing happens yet
+
+  cy.get('.awesome-selector')   // Still nothing happening
+    .click()                    // Nope, nothing
+
+  cy.url()                      // Nothing to see, yet
+    .should('include', '/my/resource/path#awesomeness') // Nada.
+})
+
+
+//Asserting in English
+cy.get('button').click().should('have.class', 'active')
+
+//After making an HTTP request to my server, I expect the response body to equal {name: 'Jane'}
+cy.request('/users/1').its('body').should('deep.eq', { name: 'Jane' })
+
+//cy.visit() expects the page to send text/html content with a 200 status code.
+//cy.request() expects the remote server to exist and provide a response.
+//cy.contains() expects the element with content to eventually exist in the DOM.
+//cy.get() expects the element to eventually exist in the DOM.
+//.find() also expects the element to eventually exist in the DOM.
+//.type() expects the element to eventually be in a typeable state.
+//.click() expects the element to eventually be in an actionable state.
+//.its() expects to eventually find a property on the current subject.
                              
+//its syntax
+cy.wrap({ width: '50' }).its('width') // Get the 'width' property
+cy.window().its('sessionStorage')     // Get the 'sessionStorage' property
 
-
+//cy.wait() actually uses 2 different timeouts. When waiting for a routing alias, we wait for a matching request for 5000ms, and then additionally for the server’s response for 30000ms. We expect your application to make a matching request quickly, but we expect the server’s response to potentially take much longer.
  
