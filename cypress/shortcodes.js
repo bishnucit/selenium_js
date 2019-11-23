@@ -243,3 +243,142 @@ cy.window().its('sessionStorage')     // Get the 'sessionStorage' property
 
 //cy.wait() actually uses 2 different timeouts. When waiting for a routing alias, we wait for a matching request for 5000ms, and then additionally for the server’s response for 30000ms. We expect your application to make a matching request quickly, but we expect the server’s response to potentially take much longer.
  
+
+//Some commands are for DOM interaction
+cy.get('button').click()           
+cy.focused().click()              
+cy.contains('Welcome').click()
+
+cy.get('button').dblclick()
+cy.focused().dblclick()
+cy.contains('Welcome').dblclick()
+
+cy.get('.menu').rightclick()  
+cy.focused().rightclick()   
+cy.contains('Today').rightclick() 
+
+cy.get('input').type('Hello, World')
+
+cy.get('[type="text"]').clear() 
+cy.get('textarea').type('Hi!').clear()  
+cy.focused().clear()   
+
+cy.get('[type="checkbox"]').check() 
+cy.get('[type="radio"]').first().check() 
+
+cy.get('[type="checkbox"]').uncheck()
+
+cy.get('select').select('user-1')
+
+cy.get('a').trigger('mousedown')
+
+cy.get('button').click({ force: true })
+
+
+
+//accessing fixtures
+beforeEach(function () {
+  // alias the users fixtures
+  cy.fixture('users.json').as('users')
+})
+
+it('utilize users in some way', function () {
+  // access the users property
+  const user = this.users[0]
+
+  // make sure the header contains the first
+  // user's name
+  cy.get('header').should('contain', user.name)
+})
+
+
+
+//Avoiding the use of this
+
+beforeEach(function () {
+  // alias the users fixtures
+  cy.fixture('users.json').as('users')
+})
+
+it('utilize users in some way', function () {
+  // use the special '@' syntax to access aliases
+  // which avoids the use of 'this'
+  cy.get('@users').then((users) => {
+    // access the users argument
+    const user = users[0]
+
+    // make sure the header contains the first
+    // user's name
+    cy.get('header').should('contain', user.name)
+  })
+})
+
+
+//After aliash DOm elements, we can later reuse
+
+cy.get('table').find('tr').as('rows')
+
+cy.get('@rows').first().click()
+
+
+
+//using alias to route
+
+cy.server()
+cy.route('POST', '/users', { id: 123 }).as('postUser')
+
+cy.get('form').submit()
+
+cy.wait('@postUser').its('requestBody').should('have.property', 'name', 'Brian')
+
+cy.contains('Successfully created user: Brian')
+
+
+// using alias to request
+
+cy.request('https://jsonplaceholder.cypress.io/comments').as('comments')
+
+// other test code here
+
+cy.get('@comments').should((response) => {
+  if (response.status === 200) {
+      expect(response).to.have.property('duration')
+    } else {
+      // whatever you want to check here
+    }
+  })
+})
+
+
+//use session cookies
+
+cy.visit('https://app.com')
+cy.getCookie('campaign')
+  .then((campaign) => {
+    return campaigns.test(campaign)
+  })
+
+
+
+// embed data in DOM
+
+cy.get('html')
+  .should('have.attr', 'data-campaign').then((campaign) => {
+    return campaigns.test(campaign)
+  })
+
+
+//using .debug
+it('let me debug like a fiend', function() {
+  cy.visit('/my/page/path')
+
+  cy.get('.selector-in-question')
+    .debug()
+})
+
+
+//clear cypress cache
+$cypress cache clear
+$npm install cypress --save-dev
+
+
